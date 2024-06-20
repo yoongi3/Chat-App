@@ -15,11 +15,13 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.11",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "export REACT_APP_SOCKET_SERVER_URL=\"http://$(ipconfig getifaddr en0):5001\" && echo $REACT_APP_SOCKET_SERVER_URL && react-scripts start",
+    "start-linux": "export REACT_APP_SOCKET_SERVER_URL=\"http://$(hostname -I):5001\" && echo $REACT_APP_SOCKET_SERVER_URL && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

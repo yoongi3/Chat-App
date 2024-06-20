@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import { WebSocketProvider } from './Components/Providers/WebSocketProvider';
+import Chatroom from './Components/Pages/Chatroom';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <WebSocketProvider url={process.env.REACT_APP_SOCKET_SERVER_URL ?? ''}>
+      <Chatroom/>
+    </WebSocketProvider>
   );
 }
 
