@@ -37,7 +37,7 @@ const Chatroom = () => {
                     <div key={index} className="message">{message}</div>
                 ))}
             </div>
-            <input type="text" value={inputMessage} onChange={handleMessageChange} onKeyDown={}></input>
+            <input type="text" value={inputMessage} onChange={handleMessageChange}></input>
             <button onClick={handleButton}>click me</button>     
         </ChatroomStyled>
     )
