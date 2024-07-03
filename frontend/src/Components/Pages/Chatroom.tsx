@@ -13,19 +13,19 @@ const Chatroom = () => {
 
     const handleButton = () => {
         if (!socket) return;
-        socket.emit('message', inputMessage)
+        socket.emit('send message', inputMessage)
         setInputMessage('');
     }
 
     useEffect(()=>{
         if(socket){
-            socket.on('message', (message: string) =>{
+            socket.on('receive message', (message: string) =>{
                 setMessages(prevMessages => [...prevMessages, message]);
             });
         }
         return () => {
             if (socket) {
-              socket.off('message');
+              socket.off('receive message');
             }
           };
     }, [socket])

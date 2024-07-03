@@ -1,8 +1,8 @@
 import mongoose, { Schema } from "mongoose";
-import { Room } from "./RoomModel";
-import { User } from "./UserModel";
+import { Room } from "./roomModel";
+import { User } from "./userModel";
 
-export interface message extends Document {
+export interface Message extends Document {
     messageID: string;
     content: string;
     sender: User;
@@ -16,4 +16,6 @@ const messageSchema: Schema =  new Schema ({
     sender: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     room: {type: mongoose.Schema.Types.ObjectId, ref: 'Room', required: true},
     createdAt: {type: Date, default: Date.now},
-})
+});
+
+export const MessageModel = mongoose.model<Message>('Message', messageSchema)

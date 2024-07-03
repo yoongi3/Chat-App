@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { User } from "./UserModel";
+import { User } from "./userModel";
 
 export interface Room extends Document {
     roomID: string;
